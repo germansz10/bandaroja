@@ -1,0 +1,326 @@
+// Variables
+$primary-color: #c50000;
+$secondary-color: #eb7474;
+$text-light: #f4f4f4;
+$text-dark: #333;
+$background-light: #fff;
+$box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+// Mixins
+@mixin transition($properties...) {
+  transition: $properties 0.3s ease;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+}
+
+// Navbar
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary-color;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  text-align: center;
+
+  .nav-link {
+    list-style-type: none;
+    text-decoration: none;
+    color: $text-light !important;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    @include transition(background-color, color);
+
+    &:hover {
+      background-color: #151c24;
+    }
+  }
+}
+
+// Hero section
+.mi-hero {
+  text-align: center;
+  width: 100%;
+  height: 500px;
+  background-image: url("../img/estadio.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  h1 {
+    padding-top: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: $text-light;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 40px;
+    font-weight: 900;
+  }
+}
+
+// Card
+.mi-tarjeta {
+  background-color: $background-light;
+  border-radius: 10px;
+  box-shadow: $box-shadow;
+  overflow: hidden;
+  max-width: 350px;
+  text-align: center;
+  @include transition(transform, box-shadow);
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  &-image {
+    width: 100%;
+    height: auto;
+  }
+
+  &-content {
+    padding: 20px;
+
+    &-title {
+      font-size: 1.5rem;
+      color: $text-dark;
+      margin-bottom: 10px;
+    }
+
+    &-description {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+  }
+  &-button {
+      display: inline-block;
+      background-color: $primary-color;
+      color: $text-light;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      @include transition(background-color, transform);
+
+      &:hover {
+        background-color: #007BFF;
+        transform: scale(1.05);
+      }
+    }
+  
+}
+
+// Layouts
+.mi-noticias,
+.mi-productos {
+  @include flex-center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.titulo-productos {
+  @include flex-center;
+}
+
+.mi-divider {
+  width: 80%;
+  height: 2px;
+  background-color: $primary-color;
+  margin: 20px auto;
+}
+
+// Footer
+footer {
+  @include flex-center;
+  justify-content: flex-end;
+  // position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: $text-light;
+  padding: 10px;
+
+  .mi-redes {
+    padding-right: 10%;
+  }
+
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+// Nosotros
+.mi-nosotros {
+  background: linear-gradient(45deg, $primary-color, $secondary-color);
+  color: $text-light;
+  padding: 20px 40px;
+  height: 100vh;
+  box-shadow: $box-shadow;
+  text-align: center;
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 0 auto;
+    max-width: 800px;
+  }
+
+  span {
+    font-weight: bold;
+    color: $text-dark;
+  }
+}
+
+.mi-centrado {
+  @include flex-center;
+  height: 100vh;
+
+  .escudo {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.mi-mosaico {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 250px 250px 250px;
+  gap: 15px;
+  margin-top: 50px;
+
+  .mi-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .img-4 {
+    grid-column: span 2;
+  }
+
+  .img-3 {
+    grid-row: span 2;
+  }
+}
+
+.carousel {
+  max-height: 600px;
+  overflow: hidden;
+
+  .carousel-item img {
+    max-height: 600px;
+    width: 100%;
+  }
+}
+
+// Contacto
+.main-contacto {
+  @include flex-center;
+  min-height: 80vh;
+  padding-top: 30px;
+
+  .form-container {
+    width: 70%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: $primary-color;
+    box-shadow: $box-shadow;
+    border-radius: 8px;
+    color: $text-light;
+  }
+}
+
+// Media Queries
+@media (max-width: 1024px) {
+  .mi-navbar {
+    flex-direction: column;
+
+    ul {
+      flex-wrap: wrap;
+    }
+  }
+
+  .mi-tarjeta {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .mi-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .mi-tarjeta {
+    width: 100%;
+  }
+
+  .mi-navbar ul {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+
+    li {
+      margin-bottom: 10px;
+    }
+  }
+
+  section {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .mi-hero h1 {
+    font-size: 1.2rem;
+  }
+
+  .mi-tarjeta-title {
+    font-size: 1.2rem;
+  }
+
+  .mi-tarjeta-description {
+    font-size: 0.8rem;
+  }
+
+  .mi-tarjeta-button {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
+}
