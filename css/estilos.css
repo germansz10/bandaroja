@@ -216,7 +216,7 @@ footer svg {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 100vh;
   padding-top: 30px;
 }
 .main-contacto .form-container {
@@ -230,12 +230,6 @@ footer svg {
 }
 
 @media (max-width: 1024px) {
-  .mi-navbar {
-    flex-direction: column;
-  }
-  .mi-navbar ul {
-    flex-wrap: wrap;
-  }
   .mi-tarjeta {
     width: 45%;
   }
@@ -247,19 +241,11 @@ footer svg {
   .mi-tarjeta {
     width: 100%;
   }
-  .mi-navbar ul {
-    flex-direction: column;
-    width: 100%;
-    margin-top: 10px;
-  }
-  .mi-navbar ul li {
-    margin-bottom: 10px;
-  }
   section {
     flex-direction: column;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 490px) {
   .mi-hero h1 {
     font-size: 1.2rem;
   }
@@ -272,6 +258,16 @@ footer svg {
   .mi-tarjeta-button {
     font-size: 0.8rem;
     padding: 8px 12px;
+  }
+  .navbar-brand img {
+    max-width: 240px;
+    height: auto;
+  }
+}
+@media (max-width: 370px) {
+  .navbar-brand img {
+    max-width: 200px;
+    height: auto;
   }
 }
 
