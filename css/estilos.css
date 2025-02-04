@@ -117,6 +117,10 @@ nav .nav-link:hover {
   padding: 20px 0;
 }
 
+.mi-productos {
+  min-height: 100vh;
+}
+
 .titulo-productos {
   display: flex;
   justify-content: center;
